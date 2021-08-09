@@ -6,6 +6,8 @@
 
 [III. Jquery Slide](#iii-jquery-slide)
 
+[IV. Jquery Animate](#iv-jquery-animate)
+
 ## I. Jquery Hide and Show
 
 ### 1. Hide and show
@@ -168,4 +170,62 @@ Ví dụ trên sẽ làm `<div>` fading từ trạng thái `hide`( opacity = 0) 
 muốn hiện ra hoàn toàn thì `opacity=1`
 
 ## III. Jquery Slide
+
+Cho phép slide element up và down
+
+bao gồm:
+
+- `slideDown()`
+- `slideUp()`
+- `slideToggle()`
+
+### 1. Jquery slideDown() và slideUp
+
+Giúp element hiện ra hay ẩn đi với slide effect
+
+**Syntax:**
+
+```javascript
+    $(selector).slideDown(speed, callback)
+    $(selector).slideUp(speed, callback)
+```
+
+**Ví dụ:**
+
+```html
+    <div id="flip" style="width:100%;height:20px;background-color:black;color:white;">slide flip</div>
+    <div id="panel" style="display:none">Hello</div>
+    <script>
+        $("#flip").click(function() {
+            $("#panel").slideDown(3000);
+        });
+        $("#flip").click(function() {
+            $("#panel").slideUp(3000);
+        });
+    </script>
+```
+
+### 2. Jquery slideToggle()
+
+Giúp element toggle between `slideUp` và `slideDown`
+
+**Syntax:**
+
+```javascript
+    $(selector).slideToggle(speed, callback);
+```
+
+**Ví dụ:**
+
+```html
+    <div id="flip" style="width:100%;height:20px;background-color:black;color:white;">slide flip</div>
+    <div id="panel" style="display:none">Hello</div>
+    <script>
+        $("#flip").click(function() {
+            $("#panel").slideToggle(3000);
+        });
+    </script>
+```
+
+## IV. Jquery Animate
 
