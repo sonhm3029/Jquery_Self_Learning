@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //hide without callback
+  $("#none-callback").click(function(){
+    $("#p1").hide(1000);
+    alert("The paragraph is now hidden");
+  });
+
+//hide with callback
+  $("#callback").click(function(){
+    $("#p2").hide(1000, function(){
+        alert("The paragraph is now hidden");
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<button id="none-callback">Hide without call back</button>
+<button id="callback">Hide withcall back</button>
+
+<p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, nesciunt neque doloremque molestiae natus soluta quam impedit animi, cupiditate laborum dolorum maiores et porro consectetur laudantium. A perspiciatis quisquam vitae.</p>
+<p id="p2">This is a paragraph with little content.</p>
+
+</body>
+</html>

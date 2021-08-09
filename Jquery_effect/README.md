@@ -420,3 +420,44 @@ Trong đó các tham số:
 Xem ví dụ trong file:
 
 [stop example](./stop_example.html)
+
+## VI. Jquery callback
+
+Bình thường, javascript chạy line by line tuy nhiên đối với jquery effect, function nào đó đặt sau effect code có thể chạy trước khi effect được hoàn thành. Việc đó sẽ dẫn đến một số lỗi không mong muốn.
+
+Vì vậy trong các effect thường có `callback` parameter để function có thể chạy sau khi effect hoàn thành.
+
+**Ví dụ:** chúng ta muốn sau khi `div` hide thì mới có thông báo rằng `div` đã hide. Nếu như chúng ta code như thường mà không dùng call back
+
+```html
+    <p>This content can hide</p>
+    <button>Click me to hide content</button>
+    <script>
+        $(function(){
+            $("button").click(function() {
+                $("p").hide();
+                alert("the content is hidden");
+            });
+        })
+    </script>
+```
+
+Nếu như dùng callback:
+
+```html
+    <p>This content can hide</p>
+    <button>Click me to hide content</button>
+    <script>
+        $(function(){
+            $("button").click(function() {
+                $("p").hide("slow", function() {
+                    alert("the content is hidden");
+                });
+            });
+        })
+    </script>
+```
+
+Xem ví dụ trong:
+
+[callback example](./callback_example.html)
