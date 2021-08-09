@@ -9,4 +9,6 @@ The jquery library contains the following features:
 - AJAX
 - Utilities
 
-[Jquery Basic](./Jquery_basic)
+[1. Jquery Basic](./Jquery_basic)
+
+[2. Jquery effect](./Jquery_effect)
