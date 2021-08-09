@@ -8,6 +8,8 @@
 
 [IV. Jquery Animate](#iv-jquery-animate)
 
+[V. Jquery Stop](#v-jquery-stop)
+
 ## I. Jquery Hide and Show
 
 ### 1. Hide and show
@@ -229,3 +231,192 @@ Giúp element toggle between `slideUp` và `slideDown`
 
 ## IV. Jquery Animate
 
+### 1. Khái niệm và cơ bản
+
+`animate()` method dùng để tạo custom animations
+
+**Syntax:**
+
+```javascript
+    $(selector).animate({params},speed, callback);
+```
+
+Tham số `params` là CSS properties để được animated, các tham số còn lại giống như các ví dụ trước.
+
+**Ví dụ:**
+
+```html
+        <style>
+            div {
+                background-color: green;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Click me to see animate</button>
+        <div></div>
+        <script>
+            $(function() {
+                $("button").click(function() {
+                    $("div").animate({left:'250px'}, "slow");
+                })
+            })
+        </script>
+```
+
+Default, tất cả HTML elements đều có static position cho nên không thể di chuyển được, vì vậy để có thể sử dụng animate thì cần set `positon` của element thành `absolute` hoặc `relative`...
+
+Ví dụ trên sẽ làm cho ô `div` move từ vị trí ban đầu đến vị trí cách trái 250px tức là di chuyển về bên phải 250px
+
+Có thể sử dụng nhiều effect trong animate.
+
+**Ví dụ:**
+
+```html
+    <style>
+            div {
+                background-color: green;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Click me to see animate</button>
+        <div></div>
+        <script>
+            $(function() {
+                $("button").click(function() {
+                    $("div").animate({
+                        left:'250px',
+                        width: '200px',
+                        height: '200px',
+                        opacity: '0.5'
+                    });
+                })
+            })
+        </script>
+```
+
+Ví dụ trên sẽ làm cho `div` dịch chuyển sang phải và to lên thành 200px với opacity là 0.5
+
+**Lưu ý:** tất cả properties names trong anime phải ở dạng camel case ví dụ ta sẽ phải sử dụng paddingLeft thay vì padding-left hay marginRight thay vì margin-right
+
+### 2. animte() với relative value
+
+Ta có thể thêm `+=` hoặc `-=` vào animate.
+
+**Ví dụ:**
+
+```html
+
+    <style>
+            div {
+                background-color: green;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Click me to see animate</button>
+        <div></div>
+        <script>
+            $(function() {
+                $("button").click(function() {
+                    $("div").animate({
+                        left:'250px',
+                        width: '+=200px',
+                        height: '+=200px',
+                        opacity: '0.5'
+                    });
+                })
+            })
+        </script>
+```
+
+Như vậy animate từ `div` với 50px width-height lên 250px width-height do cộng thêm 200px
+
+### 3. Sử dụng animate với các Pre-defined value
+
+Có thêm thêm các animate value như `"show"`, `"hide"` hay   "`toggle`"
+
+**Ví dụ:**
+
+```html
+    <style>
+            div {
+                background-color: green;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Click me to see animate</button>
+        <div></div>
+        <script>
+            $(function() {
+                $("button").click(function() {
+                    $("div").animate({
+                        height: "toggle"
+                    });
+                })
+            })
+        </script>
+
+```
+
+Khi click vào button `div` sẽ có effect `toggle` giữa `hide` và `show` theo chiều dọc, tương tự nếu để `width: "toggle"` ta sẽ có animate toggle theo chiều ngang
+
+### 4. jQuery animate() - Uses Queue Functionality
+
+By default, jquery animate diễn ra nối tiếp nhau tức là nếu như theo nhiều animate nối tiếp nhau thì khi executed chúng cũng sẽ diễn ra nối tiếp nhau
+
+**Ví dụ:**
+
+```javascript
+
+    $("button").click(function(){
+        var div = $("div");
+        div.animate({height: '300px', opacity: '0.4'}, "slow");
+        div.animate({width: '300px', opacity: '0.8'}, "slow");
+        div.animate({height: '100px', opacity: '0.4'}, "slow");
+        div.animate({width: '100px', opacity: '0.8'}, "slow");
+}); 
+```
+
+Xem trong file:
+
+[Ví dụ 1](./jquery_animate_example1.html)
+
+[Ví dụ 2](./jquery_animate_example2.html)
+
+
+
+
+## V. Jquery Stop
+
+`stop` method dùng để dừng các effect trước khi chúng được hoàn thành
+
+**Syntax:**
+
+```javascript
+    $(selector).stop(stopAll,goToEnd);
+```
+
+Trong đó các tham số:
+
+- `stopAll` có nghĩa là có dừng tất cả các animation trong `queue` animation không. Default là `false`. Có nghĩa là chỉ dừng animation mà đang được active các animation khác trong queue vẫn được thực hiện bình thường.
+
+- `goToEnd` có nghĩa là có đi đến trạng thái complete ngay animation hiện tại không. Default là `false` tức là khi bấm dừng thì nó sẽ dữ nguyên trạng thái hiện tại của element còn nếu là `true` thì element sẽ ngay lập tức reach trạng thái cuối cùng của effect.
+
+Xem ví dụ trong file:
+
+[stop example](./stop_example.html)
