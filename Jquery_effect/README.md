@@ -461,3 +461,20 @@ Nếu như dùng callback:
 Xem ví dụ trong:
 
 [callback example](./callback_example.html)
+
+## VII. Chaining
+
+Ta có thể dùng chaining để thêm nhiều effect cho một element bằng cách sau:
+
+```javascript
+    $("#p1").css("color", "red")
+    .slideUp(2000)
+    .slideDown(2000)
+    .hide(1000, function() {
+        alert("finish")
+    });
+```
+
+Xem trong file:
+
+[chaining_example](./chaining_example.html)
