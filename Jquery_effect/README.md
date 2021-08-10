@@ -478,3 +478,7 @@ Ta có thể dùng chaining để thêm nhiều effect cho một element bằng 
 Xem trong file:
 
 [chaining_example](./chaining_example.html)
+
+Tham khảo tại:
+
+[Jquery effects](https://www.w3schools.com/jquery/jquery_ref_effects.asp)

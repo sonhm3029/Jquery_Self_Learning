@@ -12,3 +12,8 @@ The jquery library contains the following features:
 [1. Jquery Basic](./Jquery_basic)
 
 [2. Jquery effect](./Jquery_effect)
+
+
+Tham khảo tại:
+
+[Jquery document](https://api.jquery.com/)

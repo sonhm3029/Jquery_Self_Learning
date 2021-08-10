@@ -305,3 +305,12 @@ Attaches nhiều event lên selected element
         });
     </script>
 ```
+
+Xem thêm tại:
+
+[Jquery overview](https://www.w3schools.com/jquery/jquery_ref_overview.asp)
+
+[Jquery selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
+
+[Jquery events](https://www.w3schools.com/jquery/jquery_ref_events.asp)
+
