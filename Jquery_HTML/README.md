@@ -10,6 +10,10 @@
 
 [V. Jquery CSS classes](#v-jquery-css-classes)
 
+[VI. Jquery css()](#vi-jquery-css)
+
+[VII. Jquery Dimensions](#vii-jquery-dimensions)
+
 ## I. Jquery get content and attribute
 
 ### 1. Get content với  text(), html(), val()
@@ -161,7 +165,6 @@ Xem ví dụ trong file:
 [set_example](#./set_example)
 
 [get_example](#./get_example)
-
 
 ## III. Jquery add elements
 
@@ -507,3 +510,104 @@ Còn nếu muốn set theo ý muốn element tại vị trí nào đó ta có th
 
 ## VII Jquery Dimensions
 
+Các method quan trọng để làm việc với dimentions:
+
+- width()
+- height()
+- innerWidth()
+- innerHeight()
+- outerWidth()
+- outerHeight()
+
+**Jquery dimensions:**
+
+![Jquery dimensions](./jquery_dim.gif)
+
+### 1. Jquery get width() và height()
+
+Hai phương thức `width()` và `height()` trả về width và height của element không bao gồm margin, border và padding
+
+**Ví dụ:**
+
+```html
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                var txt = "";
+                txt += "Width of div: " + $("#div1").width() + "</br>";
+                txt += "Height of div: " + $("#div1").height();
+                $("#div1").html(txt);
+            });
+        });
+    </script>
+    <style>
+        #div1 {
+          height: 100px;
+          width: 300px;
+          padding: 10px;
+          margin: 3px;
+          border: 1px solid blue;
+          background-color: lightblue;
+    }
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<br>
+
+<button>Display dimensions of div</button>
+
+<p>width() - returns the width of an element.</p>
+<p>height() - returns the height of an element.</p>
+
+```
+
+Tương tự ta có:
+
+- `innerWidth()` và `innerHeight()` trả về width và height của element trong đó bao gốm cả padding
+
+- `outerWidth()` và `outerHeight()` trả về width và height của element trong đó bao gồm cả padding và border
+
+- `outerWidth(true)` và `outerHeight(true)` trả về width và height của element trong đó bao gồm cả padding và border và margin
+
+**Ví dụ về việc trả về width() và height() của HTMl document và window(browser):**
+
+```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+              $("button").click(function(){
+                var txt = "";
+                txt += "Document width/height: " + $(document).width();
+                txt += "x" + $(document).height() + "\n";
+                txt += "Window width/height: " + $(window).width();
+                txt += "x" + $(window).height();
+                alert(txt);
+              });
+            });
+        </script>
+    </head>
+    <body>
+
+    <button>Display dimensions of document and window</button>
+
+    </body>
+    </html>
+
+
+```
+
+### 2. set width() và height()
+
+Để thay đổi width và height ta dùng như sau:
+
+```javascript
+    $("button").click(function(){
+        $("#div1").width(500).height(500);
+    });
+
+```
